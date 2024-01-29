@@ -1,4 +1,4 @@
-#TODO: Nessa primeira parte irei utiliazar a Base de Dados das startups eu vou verificar
+#TODO: Nessa primeira parte irei utiliazar a Base de Dados das startups para eu verificar
 # Os dados, alterando os nomes das colunas, para que fique mais fácil
 # a manipulação. E também fazer a verificação dos campos nulos, somando eles
 # e fazendo um gráfico de calor.
@@ -13,7 +13,7 @@ import warnings
 warnings.filterwarnings('ignore') #Com essa biblioteca e essa função tira alguns avisos.
 
 #ler os dados
-Base_Dados = pd.read_csv('Startups in 2021 end.csv')
+Base_Dados = pd.read_csv('../Startups in 2021 end.csv')
 
 #Verificar a dimensão
 print('SHAPE:',Base_Dados.shape,'\n')
@@ -45,5 +45,5 @@ print('\nNULOS:\n',Base_Dados.isnull().sum())
 # Gráfico de calor exibindo os campos nulos da Base de Dados
 plt.figure(figsize=(15, 6))
 plt.title('Analisando Campos Nulos')
-sns.heatmap(Base_Dados.isnull(), cbar=False)#Com o comando 'cbar=False' eu tiro a barrinha de escala, que fica do lado direito.
+sns.heatmap(Base_Dados.isnull(), cbar=False)#Com o comando 'cbar=False' eu tiro a barrinha de escala, que fica do lado direito do gráfico.
 plt.show()
