@@ -1,3 +1,6 @@
+#TODO: Nessa parte irei converter a coluna 'Valor ($)' para float e depois fazer a soma desses valores
+# na tabela analitica e por fim criando um gráfico em linha com os valores de cada Pais.
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -25,7 +28,7 @@ print('Coluna Valor com o dtype: object\n',Base_Dados['Valor ($)'].head(),'\n\n'
 #TODO: apply é uma função do Pandas onde eu consigo mexer dentro da miha coluna,
 # percorrendo linha por linha e fazer algum tipo de opreração.
 Base_Dados['Valor ($)'] = pd.to_numeric(Base_Dados['Valor ($)'].apply(lambda Linha:
-                                                        Linha.replace('$', '')))
+                                                        Linha.replace('$', ''))) #com o lambda eu tiro todos '$' e troco por um espaço vazio
 print('Coluna Valor com o dtype: float64\n',Base_Dados['Valor ($)'].head(),'\n\n')
 
 # Tabela Anlitica

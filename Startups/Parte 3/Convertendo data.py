@@ -1,3 +1,6 @@
+#TODO: Nessa parte irei converter a coluna 'Data de Adesão' para datetime, extraindo dia, mes e ano
+# e criando tabelas analiticas para mostrar as startups de cada Pais
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -29,15 +32,15 @@ Base_Dados['Data de Adesão'] = pd.to_datetime(Base_Dados['Data de Adesão'])
 print('Coluna Data com o dtype: datetime\n',Base_Dados['Data de Adesão'].head(),'\n\n')
 
 #Extrair ano, mes e dia
+Base_Dados['Dia'] = pd.DatetimeIndex(Base_Dados['Data de Adesão']).day
 Base_Dados['Mes'] = pd.DatetimeIndex(Base_Dados['Data de Adesão']).month
 Base_Dados['Ano'] = pd.DatetimeIndex(Base_Dados['Data de Adesão']).year
-Base_Dados['Dia'] = pd.DatetimeIndex(Base_Dados['Data de Adesão']).day
 #Eu criei uma coluna 'Mes' e extrai o dado da coluna 'Data de Adesão' com o comando .month
 print(Base_Dados.head(),'\n\n')
 
-# Tabela Anlitica
+# Tabela Analitica
 # A função groupby ela agrupa as informações selecionadas                                 #A coluna 'Setor' está aqui para que fique melhor na hora do print, sem isso o programa vai printar todas as colunas
-Analise_Agrupada = Base_Dados.groupby(by=['Pais', 'Ano', 'Mes', 'Dia', 'Empresa']).count()['Setor'].reset_index()
+Analise_Agrupada = Base_Dados.groupby(by=['Pais', 'Dia', 'Mes', 'Ano', 'Empresa']).count()['Setor'].reset_index()
 print(Analise_Agrupada.head(),'\n\n')
 
 #TODO: A função 'loc' localiza alguma coisa na Base de Dados
